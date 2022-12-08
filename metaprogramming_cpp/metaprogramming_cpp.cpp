@@ -10,8 +10,6 @@ struct Fibonnacci
 template<>
 struct Fibonnacci<0>
 {
-
-    std::cout << "Hello World" << std::endl;
     static const int value = 0;
 };
 
