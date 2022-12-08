@@ -1,11 +1,29 @@
 // metaprogramming_cpp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+template<int n>
+struct Fibonnacci
+{
+    static const int value = Fibonnacci<n - 1>::value + Fibonnacci<n - 2>::value;
+};
+
+template<>
+struct Fibonnacci<0>
+{
+    static const int value = 0;
+};
+
+template<>
+struct Fibonnacci<1>
+{
+    static const int value = 1;
+};
+
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << Fibonnacci<10>::value << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
