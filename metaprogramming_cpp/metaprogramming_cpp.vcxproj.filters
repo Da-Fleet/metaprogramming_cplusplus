@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="metaprogramming_cpp.cpp">
+    <ClCompile Include="fibonacci.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unroll_for.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
