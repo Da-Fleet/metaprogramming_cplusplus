@@ -2,14 +2,21 @@
 //
 
 #include <iostream>
-#include "fibonacci.cpp"
 #include "unroll_for.cpp"
+#include "fibonacci.cpp"
+
+using namespace std;
+
+struct Printer{
+    static void action(int i) {
+        printf("%d\n", i);
+    }
+};
 
 int main()
 {
-    std::cout << Fibonnacci<10>::value << std::endl;
-    _for<0, 10, 1 >::run();
-    return 0;
+    UnrollerS<Printer, 10, 20>::step();
+    //std::cout << Fibonnacci<9>::value << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
