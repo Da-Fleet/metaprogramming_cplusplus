@@ -1,6 +1,13 @@
 // metaprogramming_cpp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <iostream>
+
+using namespace std;
+
+
+#pragma region Fibonacci
+
 template<int n>
 struct Fibonnacci
 {
@@ -19,11 +26,50 @@ struct Fibonnacci<1>
     static const int value = 1;
 };
 
-#include <iostream>
+#pragma endregion
+
+#pragma region ForLoop
+
+//static unroller
+template <typename Action, int Begin, int End, int Step = 1>
+struct UnrollerS {
+    static void step() {
+        Action::action(Begin);
+        UnrollerS<Action, Begin+Step, End, Step>::step();
+    }
+};
+//end of static unroller
+template <typename Action, int End, int Step>
+struct UnrollerS<Action, End, End, Step> {
+    static void step() { }
+};
+
+//dynamic unroller
+template <typename Action, int Begin, int End, int Step = 1>
+struct UnrollerD {
+    static void step(Action& a) {
+        a.action(Begin);
+        UnrollerD<Action, Begin+Step, End>::step(a);
+    }
+};
+//end of dynamic unroller
+template <typename Action, int End, int Step>
+struct UnrollerD<Action, End, End, Step> {
+    static void step(Action& a) { }
+};
+
+#pragma endregion
+
+struct Printer{
+    static void action(int i) {
+        printf("%d\n", i);
+    }
+};
 
 int main()
 {
-    std::cout << Fibonnacci<10>::value << std::endl;
+    UnrollerS<Printer, 10, 20>::step();
+    //std::cout << Fibonnacci<9>::value << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
