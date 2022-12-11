@@ -1,7 +1,7 @@
 using namespace std;
 
 constexpr int Fibonacci(int n) {
-	return n == 0 || n == 1 ? 0 : Fibonacci(n - 1) + Fibonacci(n - 2);
+	return n == 0 || n == 1 ? 1 : Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
 class Point {
