@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="constexpr.cpp" />
     <ClCompile Include="fibonacci.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="unroll_for.cpp" />
