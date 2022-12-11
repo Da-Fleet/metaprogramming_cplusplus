@@ -1,3 +1,5 @@
+#include <iostream>
+
 using namespace std;
 
 template <typename Action, int Begin, int End, int Step = 1>
@@ -28,3 +30,14 @@ template <typename Action, int End, int Step>
 struct UnrollerD<Action, End, End, Step> {
     static void step(Action& a) { }
 };
+
+struct Printer{
+    static void action(int i) {
+        printf("%d\n", i);
+    }
+};
+
+int main()
+{
+    UnrollerS<Printer, 10, 20>::step();
+}

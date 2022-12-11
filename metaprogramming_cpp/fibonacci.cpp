@@ -1,3 +1,5 @@
+#include <iostream>
+
 template<int n>
 struct Fibonacci
 {
@@ -15,3 +17,8 @@ struct Fibonacci<1>
 {
     static const int value = 1;
 };
+
+int main()
+{
+    std::cout << Fibonacci<20>::value << std::endl;
+}
