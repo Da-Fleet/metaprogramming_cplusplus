@@ -7,6 +7,7 @@ struct UnrollerS {
         UnrollerS<Action, Begin+Step, End, Step>::step();
     }
 };
+
 //end of static unroller
 template <typename Action, int End, int Step>
 struct UnrollerS<Action, End, End, Step> {
@@ -21,6 +22,7 @@ struct UnrollerD {
         UnrollerD<Action, Begin+Step, End>::step(a);
     }
 };
+
 //end of dynamic unroller
 template <typename Action, int End, int Step>
 struct UnrollerD<Action, End, End, Step> {
