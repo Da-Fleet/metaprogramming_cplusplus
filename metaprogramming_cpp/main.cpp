@@ -4,6 +4,7 @@
 #include <iostream>
 #include "unroll_for.cpp"
 #include "fibonacci.cpp"
+#include "constexpr.cpp"
 
 using namespace std;
 
@@ -15,8 +16,8 @@ struct Printer{
 
 int main()
 {
-    UnrollerS<Printer, 10, 20>::step();
-    //std::cout << Fibonnacci<9>::value << std::endl;
+    //UnrollerS<Printer, 10, 20>::step();
+    std::cout << Fibonacci(40) << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
