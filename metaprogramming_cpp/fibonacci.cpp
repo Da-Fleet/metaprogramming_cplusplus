@@ -1,17 +1,17 @@
 template<int n>
-struct Fibonnacci
+struct Fibonacci
 {
-    static const int value = Fibonnacci<n - 1>::value + Fibonnacci<n - 2>::value;
+    static const int value = Fibonacci<n - 1>::value + Fibonacci<n - 2>::value;
 };
 
 template<>
-struct Fibonnacci<0>
+struct Fibonacci<0>
 {
     static const int value = 0;
 };
 
 template<>
-struct Fibonnacci<1>
+struct Fibonacci<1>
 {
     static const int value = 1;
 };
